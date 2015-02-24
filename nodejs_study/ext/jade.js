@@ -7,7 +7,10 @@ http.createServer(function(request,response){
 		var fn = jade.compile(data);
 
 		response.writeHead(200,{'Content-Type':'text/html'});
-		response.end(fn());
+		response.end(fn({
+			name : 'Otobashi',
+			description : 'Hello Jade...!'
+		}));
 	});
 }).listen(52273,function(){
 	console.log('Server Running at http://127.0.0.1:52273');
